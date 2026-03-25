@@ -1,0 +1,22 @@
+{
+  "name": "todo-app",
+  "version": "1.0.0",
+  "description": "",
+  "keywords": [
+    "todo",
+    "crud"
+  ],
+  "license": "ISC",
+  "author": "aishani",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js"
+  },
+  "dependencies": {
+    "ejs": "^5.0.1",
+    "express": "^5.2.1",
+    "mongoose": "^9.3.2",
+    "nodemon": "^3.1.14"
+  }
+}

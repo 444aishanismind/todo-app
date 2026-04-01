@@ -1,0 +1,37 @@
+<%- include('partials/header') %>
+
+<div class="table-container">
+  <h2 class="table-title">Todo List</h2>
+
+  <div>
+    <a class="add-button" href="/newTodo">Add New Task</a>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Task</th>
+        <th>Description</th>
+        <th>Created at</th>
+        <th>Updated at</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for (let i = 0; i < todos.length; i++) { %>
+        <tr>
+          <td><%= todos[i].title %></td>
+          <td><%= todos[i].desc %></td>
+          <td><%= moment(todos[i].createdAt).format('YYYY-MM-DD HH:mm:ss') %></td>
+          <td><%= moment(todos[i].updatedAt).format('YYYY-MM-DD HH:mm:ss') %></td>
+          <td>
+            <a class="btn" href="/updateTodo/<%= todos[i]._id %>">edit</a>
+            <a class="btn" href="/deleteTodo/<%= todos[i]._id %>">delete</a>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
+</div>
+
+<%- include('partials/footer') %>

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const { time } = require("console");
 const express = require("express");
 const mongoose = require("mongoose");
@@ -7,7 +8,8 @@ const bodyParser = require("body-parser");
 const moment=require("moment");
 const connectMongodb = require("./init/mongodb");
 
-const PORT = 8000;
+
+const PORT = process.env.PORT || 8000;
 
 // init app
 const app = express();
@@ -109,6 +111,15 @@ app.post("/newTodo", async (req, res, next) => {
 });
 
 // listen server
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+async function startServer() {
+  try {
+    await connectMongodb();
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (err) {
+    console.error(err.message);
+  }
+}
+
+startServer();

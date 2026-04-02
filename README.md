@@ -1,6 +1,6 @@
 # Todo App
 
-A simple Todo application built with Node.js, Express, EJS, and MongoDB Atlas.
+A full-stack Todo app built with Node.js, Express, EJS, and MongoDB Atlas, using RESTful routes and server-side rendering.
 
 ## Features
 - Create todos
